@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-ppp
+spec:
+  selector:
+    matchLabels:
+      app: web-app
+  replicas: 3
+  template: 
+    metadata:
+      name: project
+      labels:
+        app: web-app
+    spec: 
+      containers:
+        - image: os2023/salma1
+          name: deployment-cont
+          imagePullPolicy: IfNotPresent
+          resources:
+            limits:
+              memory: "512Mi"
+              cpu: "1"
